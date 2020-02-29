@@ -17,6 +17,7 @@ import RadioButton from './RadioButton/RadioButton.component';
 import Title from './Title/Title.component';
 import Toggle from './Toggle/Toggle.component';
 import Touchable from './Touchable/Touchable.component';
+import Icon from './Icon/Icon.component';
 
 export {
   ActionMenu,
@@ -38,4 +39,5 @@ export {
   Title,
   Toggle,
   Touchable,
+  Icon,
 };

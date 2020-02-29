@@ -160,16 +160,15 @@ const FONT_WEIGHT_NORMAL = {
   fontWeight: theme.FONT_WEIGHT_REGULAR,
   ...Platform.select({
     ios: {
-      fontFamily: 'Nunito',
+      fontFamily: 'Arial',
     },
     android: {
-      fontFamily: 'Nunito-SemiBold',
+      fontFamily: 'sans-serif',
     },
   }),
 };
 
 const textBasic = {
-  fontFamily: 'Nunito',
   color: theme.black,
   ...FONT_WEIGHT_NORMAL,
 };

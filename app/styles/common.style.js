@@ -63,10 +63,10 @@ export const FONT_WEIGHT_BOLD = {
   fontWeight: theme.FONT_WEIGHT_BOLD,
   ...Platform.select({
     ios: {
-      fontFamily: 'Nunito',
+      fontFamily: 'Arial',
     },
     android: {
-      fontFamily: 'Nunito-Bold',
+      fontFamily: 'sans-serif',
     },
   }),
 };
@@ -75,10 +75,10 @@ export const FONT_WEIGHT_EXTRA_BOLD = {
   fontWeight: theme.FONT_WEIGHT_EXTRA_BOLD,
   ...Platform.select({
     ios: {
-      fontFamily: 'Nunito',
+      fontFamily: 'Arial',
     },
     android: {
-      fontFamily: 'Nunito-ExtraBold',
+      fontFamily: 'sans-serif',
     },
   }),
 };
