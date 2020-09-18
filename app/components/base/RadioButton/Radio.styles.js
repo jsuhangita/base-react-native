@@ -7,7 +7,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginRight: theme.PADDING,
+    marginRight: theme.PADDING_MEDIUM,
     paddingVertical: theme.PADDING_SMALL,
   },
 
@@ -22,18 +22,25 @@ export default StyleSheet.create({
   },
 
   checkedCircle: {
-    width: 14,
-    height: 14,
-    borderRadius: 7,
-    backgroundColor: '#794F9B',
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: theme.PRIMARY,
   },
 
   text: {
     ...FONT_SIZE_NORMAL,
+    color: theme.PRIMARY,
     marginLeft: theme.PADDING_SMALL,
   },
 
   icon: {
     marginLeft: theme.PADDING_SMALL,
+  },
+  iconCheck: {
+    marginLeft: 'auto',
+    marginTop: 'auto',
+    marginRight: 'auto',
+    marginBottom: 'auto',
   },
 });

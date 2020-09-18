@@ -1,11 +1,11 @@
 import React from 'react';
 import { Image as RNImage } from 'react-native';
 import PropTypes from 'prop-types';
-import defaultImg from '../../../assets/images/default.png';
+import defaultImg from '../../../assets/images/gympod.png';
 
 export default function Image(props) {
   const { source, ...others } = props;
-  const imageSource = source.uri ? source : defaultImg;
+  const imageSource = source.uri || source ? source : defaultImg;
   return (
     <RNImage
       {...others}

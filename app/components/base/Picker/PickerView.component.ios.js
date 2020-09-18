@@ -5,7 +5,6 @@ import { findIndex, noop } from 'lodash';
 import Modal from '../Modal/Modal.component';
 import Touchable from '../Touchable/Touchable.component';
 import styles from './PickerView.styles';
-import Icon from '../Icon/Icon.component';
 import { language } from '../../../languages';
 
 export default class PickerView extends PureComponent {
@@ -77,20 +76,13 @@ export default class PickerView extends PureComponent {
     } = this.props;
     return (
       <Modal
-        closeOnTouchOutside
+        // closeOnTouchOutside
         animationType="fade"
         visible={modalVisible}
         onClose={hideModal}
       >
         <View style={styles.header}>
-          <View style={styles.header__left}>
-            <Touchable onPress={this.onPressPrevious}>
-              <Icon name="chevron-left" size={20} style={styles.header__leftIcon} />
-            </Touchable>
-            <Touchable onPress={this.onPressNext}>
-              <Icon name="chevron-right" size={20} style={styles.header__rightIcon} />
-            </Touchable>
-          </View>
+          <View style={styles.header__left} />
           <Touchable onPress={this.onSelect}>
             <Text style={styles.header__rightButton}>
               {confirmText || language.PICKER__DONE}

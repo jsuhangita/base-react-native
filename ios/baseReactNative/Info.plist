@@ -41,6 +41,18 @@
 			</dict>
 		</dict>
 	</dict>
+  <key>UIAppFonts</key>
+  <array>
+    <string>MaterialIcons.ttf</string>
+    <string>MaterialCommunityIcons.ttf</string>
+    <string>Feather.ttf</string>
+    <string>Exo2-Regular.ttf</string>
+    <string>Exo2-Bold.ttf</string>
+    <string>FontAwesome.ttf</string>
+    <string>FontAwesome5_Brands.ttf</string>
+    <string>FontAwesome5_Regular.ttf</string>
+    <string>FontAwesome5_Solid.ttf</string>
+  </array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>

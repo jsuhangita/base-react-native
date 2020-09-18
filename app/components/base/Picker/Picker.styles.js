@@ -1,5 +1,5 @@
 import {
-  flex1,
+  flex1, FONT_SIZE_NORMAL,
   fontSizeMedium, rowLeft,
 } from '../../../styles/common.style';
 import { theme } from '../../../styles/core.style';
@@ -13,13 +13,11 @@ export default {
   },
   picker__container: {
     backgroundColor: theme.transparent,
-    borderBottomWidth: 1,
-    borderBottomColor: theme.black,
+    borderWidth: 1,
+    borderColor: theme.PRIMARY,
   },
   picker__round: {
-    backgroundColor: theme.white,
     paddingHorizontal: theme.padding,
-    borderBottomWidth: 0,
     borderRadius: 50,
   },
   input__label: {
@@ -47,7 +45,7 @@ export default {
   },
   picker__text: {
     ...fontSizeMedium,
-    color: theme.black,
+    color: theme.PRIMARY,
   },
 
   picker__text_white: {
@@ -56,6 +54,11 @@ export default {
 
   picker__border_white: {
     borderBottomColor: theme.white,
+  },
+  labelStyle: {
+    ...FONT_SIZE_NORMAL,
+    color: theme.PRIMARY,
+    marginBottom: theme.PADDING_SMALL,
   },
 
   picker__disabled: {},

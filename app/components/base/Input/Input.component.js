@@ -88,8 +88,8 @@ export default class Input extends PureComponent {
 
     return (
       <View style={wrapperStyleProps}>
+        {label ? <Label style={styles.labelStyle} white={white} grey={grey} text={label} /> : null}
         <View style={containerStyleProps}>
-          {label ? <Label white={white} grey={grey} text={label} /> : null}
           <View style={styles.content}>
             {
               (affix || iconAffix)

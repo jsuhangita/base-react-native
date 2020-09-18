@@ -24,7 +24,7 @@ export default StyleSheet.create({
     backgroundColor: theme.PRIMARY,
     borderRadius: 5,
     paddingHorizontal: 15,
-    height: 47,
+    height: 42,
   },
   button__round: {
     borderRadius: 50,
@@ -48,7 +48,7 @@ export default StyleSheet.create({
     textAlign: 'left',
   },
   button__outlineContainer: {
-    backgroundColor: theme.TRANSPARENT,
+    backgroundColor: theme.SEMI_LIGHT_BLACK,
     borderWidth: 1,
     borderColor: theme.PRIMARY,
     borderRadius: 5,
@@ -63,7 +63,7 @@ export default StyleSheet.create({
   },
   button__text: {
     ...FONT_SIZE_MEDIUM,
-    color: theme.WHITE,
+    color: theme.BLACK,
   },
 
   icon: {
@@ -84,14 +84,14 @@ export default StyleSheet.create({
     backgroundColor: theme.DISABLED_GRREY,
   },
   button__outline_disabled: {
-    backgroundColor: theme.TRANSPARENT,
+    backgroundColor: theme.GREY,
     borderColor: theme.DISABLED_GRREY,
   },
   button__disabledText: {
     color: theme.DISABLED_GRREY,
   },
   small: {
-    height: 34,
+    height: 38,
   },
   smallText: {
     fontSize: theme.FONT_SIZE_SMALL,

@@ -10,7 +10,7 @@ export default function OverlaySpinner(props) {
   if (visible) {
     return (
       <View visible={visible} style={styles.container}>
-        <Loading color={theme.white} />
+        <Loading color={theme.PRIMARY} />
       </View>
     );
   }

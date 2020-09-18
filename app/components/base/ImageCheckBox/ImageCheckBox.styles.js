@@ -1,31 +1,47 @@
 import { StyleSheet } from 'react-native';
-
-import { viewportWidth } from '../../../utils/device.util';
+import { FONT_SIZE_NORMAL, FONT_WEIGHT_BOLD } from '../../../styles/common.style';
 import { theme } from '../../../styles/core.style';
-import { fontSizeLarge, fullScreenAbsolute, rowCenter } from '../../../styles/common.style';
 
 export default StyleSheet.create({
-  imageCheckBox__container: {
-    height: viewportWidth,
-    width: viewportWidth,
-    backgroundColor: theme.transparent,
-  },
-
-  imageCheckBox__box: {
+  container: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 5,
+    marginRight: theme.PADDING_MEDIUM,
+    paddingVertical: theme.PADDING_SMALL,
   },
 
-  imageCheckBox__iconContainer: {
-    ...fullScreenAbsolute,
-    ...rowCenter,
-    backgroundColor: theme.overlayBackground,
+  circle: {
+    height: 20,
+    width: 20,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#ACACAC',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
-  imageCheckBox__icon: {
-    ...fontSizeLarge,
-    color: theme.white,
+  checkedCircle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: theme.PRIMARY,
+  },
+
+  text: {
+    ...FONT_SIZE_NORMAL,
+    ...FONT_WEIGHT_BOLD,
+    color: theme.PRIMARY,
+    marginLeft: theme.PADDING_SMALL,
+  },
+
+  icon: {
+    marginLeft: theme.PADDING_SMALL,
+  },
+  iconCheck: {
+    marginLeft: 'auto',
+    marginTop: 'auto',
+    marginRight: 'auto',
+    marginBottom: 'auto',
   },
 });

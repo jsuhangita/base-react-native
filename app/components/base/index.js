@@ -18,6 +18,7 @@ import Title from './Title/Title.component';
 import Toggle from './Toggle/Toggle.component';
 import Touchable from './Touchable/Touchable.component';
 import Icon from './Icon/Icon.component';
+import DatePicker from './DatePicker/DatePicker.component';
 
 export {
   ActionMenu,
@@ -40,4 +41,5 @@ export {
   Toggle,
   Touchable,
   Icon,
+  DatePicker,
 };

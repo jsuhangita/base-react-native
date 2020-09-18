@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import {
-  View, ViewPropTypes, ImageBackground, Text,
+  View, Text, ViewPropTypes,
 } from 'react-native';
 import { noop } from 'lodash';
 import Touchable from '../Touchable/Touchable.component';
 import styles from './ImageCheckBox.styles';
+import Icon from '../Icon/Icon.component';
+import { theme } from '../../../styles/core.style';
 
 export default class ImageCheckBox extends PureComponent {
   constructor(props) {
@@ -13,20 +15,7 @@ export default class ImageCheckBox extends PureComponent {
     this.state = {
       onSelect: false,
     };
-    this._onCancelSelect = this._onCancelSelect.bind(this);
     this._selectImage = this._selectImage.bind(this);
-  }
-
-  componentDidUpdate() {
-    const { onSelect } = this.state;
-    const { canSelect } = this.props;
-    if (onSelect && !canSelect) {
-      this._onCancelSelect();
-    }
-  }
-
-  _onCancelSelect() {
-    this.setState({ onSelect: false });
   }
 
   _selectImage() {
@@ -40,50 +29,43 @@ export default class ImageCheckBox extends PureComponent {
   render() {
     const { onSelect } = this.state;
     const {
-      style: styleOverride,
-      source, canSelect, onPress, onLongPress,
-      total,
+      text,
+      containerStyle: containerStyleOverride,
     } = this.props;
-    const imageStyles = [
-      styles.imageCheckBox__container,
-      styleOverride,
-    ];
-    const handlePress = canSelect ? this._selectImage : onPress;
-    const canPress = total < 10 ? handlePress : noop;
     return (
-      <Touchable onPress={canPress} onLongPress={onLongPress}>
-        <ImageBackground
-          style={imageStyles}
-          source={source}
+      <View style={[styles.container, containerStyleOverride]}>
+        <Touchable
+          style={styles.circle}
+          onPress={this._selectImage}
         >
           {
-            canSelect && onSelect
-              ? (
-                <View style={styles.imageCheckBox__iconContainer}>
-                  <Text style={styles.imageCheckBox__icon}>&#10003;</Text>
+              onSelect ? (
+                <View style={styles.checkedCircle}>
+                  <Icon
+                    name="check"
+                    color={theme.BLACK}
+                    size={15}
+                    style={styles.iconCheck}
+                  />
                 </View>
-              )
-              : null
-          }
-        </ImageBackground>
-      </Touchable>
+              ) : <View style={styles.circle} />
+            }
+        </Touchable>
+        <Touchable onPress={this._selectImage}>
+          <Text style={styles.text}>{text}</Text>
+        </Touchable>
+      </View>
     );
   }
 }
 ImageCheckBox.propTypes = {
-  canSelect: PropTypes.bool,
+  text: PropTypes.string,
   onPress: PropTypes.func,
-  onLongPress: PropTypes.func,
-  source: PropTypes.object,
-  style: ViewPropTypes.style,
-  total: PropTypes.number,
+  containerStyle: ViewPropTypes.style,
 };
 
 ImageCheckBox.defaultProps = {
-  canSelect: false,
+  text: '',
   onPress: noop,
-  onLongPress: noop,
-  source: {},
-  style: {},
-  total: 0,
+  containerStyle: {},
 };

@@ -6,15 +6,15 @@ import {
 
 export default StyleSheet.create({
   wrapper: {
-    marginBottom: theme.paddingLarge,
+    marginBottom: theme.PADDING_MEDIUM,
   },
   no_margin: {
     marginBottom: 0,
   },
   container: {
     backgroundColor: theme.transparent,
-    borderBottomWidth: 1,
-    borderBottomColor: theme.FADE_BORDER,
+    borderWidth: 2,
+    borderColor: theme.PRIMARY,
   },
 
   outline: {
@@ -25,9 +25,6 @@ export default StyleSheet.create({
   },
 
   round: {
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    paddingHorizontal: theme.padding,
-    borderBottomWidth: 0,
     borderRadius: 50,
   },
 
@@ -68,7 +65,7 @@ export default StyleSheet.create({
   text: {
     ...FONT_SIZE_NORMAL,
     height: 44,
-    color: theme.black,
+    color: theme.PRIMARY,
     paddingLeft: theme.PADDING,
   },
 
@@ -97,7 +94,12 @@ export default StyleSheet.create({
   readOnlyText: {
     ...FONT_SIZE_NORMAL,
     flex: 1,
-    color: theme.black,
+    color: theme.PRIMARY,
     paddingLeft: theme.PADDING,
+  },
+  labelStyle: {
+    ...FONT_SIZE_NORMAL,
+    color: theme.PRIMARY,
+    marginBottom: theme.PADDING,
   },
 });

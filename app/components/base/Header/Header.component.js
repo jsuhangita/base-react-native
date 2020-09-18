@@ -4,6 +4,7 @@ import {
   Animated, StatusBar, View, ViewPropTypes, Text,
 } from 'react-native';
 import { isEmpty, noop } from 'lodash';
+import { SafeAreaView } from 'react-navigation';
 import Icon from '../Icon/Icon.component';
 import Touchable from '../Touchable/Touchable.component';
 import styles from './Header.styles';
@@ -20,9 +21,9 @@ function alignStyle(placement) {
       return 'center';
   }
 }
-function generateChild(value, type, opacity, placement) {
+function generateChild(value, type, opacity) {
   const {
-    onPress = noop, icon, text, size = 15, style = {},
+    onPress = noop, icon, text, size = 18, style = {},
     disabled, ...rest
   } = value;
   if (React.isValidElement(value)) {
@@ -43,7 +44,7 @@ function generateChild(value, type, opacity, placement) {
         key={type}
         style={[
           styles.centerComponent,
-          { alignItems: alignStyle(placement) },
+          { alignItems: 'center' },
         ]}
       >
         <Animated.Text
@@ -82,10 +83,13 @@ function populateChildren(propChildren, opacity, placement) {
   const leftComponent = generateChild(propChildren.leftComponent, 'left', opacity);
   const centerComponent = generateChild(propChildren.centerComponent, 'center', opacity, placement);
   const rightComponent = generateChild(propChildren.rightComponent, 'right', opacity);
-  childrenArray
-    .push((isEmpty(propChildren.leftComponent) && placement !== 'center')
+  if (isEmpty(propChildren.leftComponent) && isEmpty(propChildren.rightComponent)) {
+    childrenArray.push(centerComponent);
+  } else {
+    childrenArray.push((isEmpty(propChildren.leftComponent) && placement !== 'center')
       ? null
       : leftComponent, centerComponent, rightComponent);
+  }
   return childrenArray;
 }
 export default function Header(props) {
@@ -114,19 +118,21 @@ export default function Header(props) {
   }
 
   const barStyle = getPlatform === 'ios' ? 'dark-content' : 'default';
-
   return (
-    <Animated.View
-      {...otherProps}
-      style={[
-        styles.outerContainer,
-        { backgroundColor, zIndex },
-        outerContainerStyleOverride,
-      ]}
-    >
-      <StatusBar {...statusBarProps} barStyle={barStyle} />
-      {children || propChildren}
-    </Animated.View>
+    <SafeAreaView style={{ backgroundColor: theme.PRIMARY }}>
+      <Animated.View
+        {...otherProps}
+        style={[
+          styles.outerContainer,
+          { backgroundColor, zIndex },
+          outerContainerStyleOverride,
+        ]}
+      >
+        <StatusBar {...statusBarProps} barStyle={barStyle} />
+        {children || propChildren}
+      </Animated.View>
+    </SafeAreaView>
+
   );
 }
 Header.propTypes = {
@@ -154,7 +160,7 @@ Header.defaultProps = {
   statusBarProps: {},
   children: null,
   placement: getPlatform === 'ios' ? 'center' : 'left',
-  backgroundColor: theme.WHITE,
+  backgroundColor: theme.PRIMARY,
   opacity: 1,
   zIndex: 1,
 };

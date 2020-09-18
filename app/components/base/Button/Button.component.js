@@ -29,11 +29,13 @@ const Button = ({
   highlightColor,
   style: overrideStyles,
   textStyle: overrideTextStyles,
+  wrapperStyle: overrideWrapperStyle,
   text,
   icon,
   small,
   iconColor,
   iconSize,
+  iconType,
   reverse,
   ...extraProps
 }) => {
@@ -43,13 +45,14 @@ const Button = ({
     (right) && styles.button__right,
     (bottomCenter) && styles.button__bottomCenter,
     (bottomRight) && styles.button__bottomRight,
+    overrideWrapperStyle,
   ];
   const containerStyle = [
     styles.button__container,
     (icon && !text) && { height: null },
-    (round) && styles.button__round,
     (transparent) && styles.button__transparentContainer,
     (outline) && styles.button__outlineContainer,
+    (round) && styles.button__round,
     small && styles.small,
     (disabled) && styles.button__outline_disabled,
     (disabled && outline) && styles.button__outline_disabled,
@@ -57,10 +60,10 @@ const Button = ({
   ];
   const buttonStyle = [
     styles.button__text,
-    (bold) && styles.button__boldText,
     (transparent) && styles.button__transparentText,
     (outline) && styles.button__outlineText,
     (white) && styles.button__whiteText,
+    (bold) && styles.button__boldText,
     (leftText) && styles.button__left_text,
     small && styles.smallText,
     (disabled) && styles.button__disabledText,
@@ -74,19 +77,19 @@ const Button = ({
     || (
       <View style={styles.button__textContainer}>
         { reverse && icon ? (
-          <Icon name={icon} style={iconStyle} color={iconColor} size={iconSize} />
+          <Icon iconType={iconType} name={icon} style={iconStyle} color={iconColor} size={iconSize} />
         ) : null }
         <Text style={buttonStyle}>{text}</Text>
         { !reverse && icon ? (
-          <Icon name={icon} style={iconStyle} color={iconColor} size={iconSize} />
+          <Icon iconType={iconType} name={icon} style={iconStyle} color={iconColor} size={iconSize} />
         ) : null }
       </View>
     );
   if (loading) {
     return (
       <View style={[wrapperStyle, { margin }]}>
-        <View style={styles.button__textContainer}>
-          <Loading center size="small" />
+        <View {...extraProps} style={containerStyle}>
+          <Loading center size="small" color={theme.BLACK} />
         </View>
       </View>
     );
@@ -134,6 +137,8 @@ Button.propTypes = {
   icon: PropTypes.string,
   text: PropTypes.string,
   iconColor: PropTypes.string,
+  wrapperStyle: PropTypes.object,
+  iconType: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -159,10 +164,12 @@ Button.defaultProps = {
   iconSize: 20,
   style: {},
   textStyle: {},
-  highlightColor: theme.white,
+  highlightColor: theme.PRIMARY,
   icon: null,
   text: '',
-  iconColor: theme.BLACK,
+  iconColor: theme.PRIMARY,
+  wrapperStyle: {},
+  iconType: '',
 };
 
 export default Button;

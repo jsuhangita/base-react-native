@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Modal as RNModal, TouchableWithoutFeedback, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { noop } from 'lodash';
 import styles from './Modal.styles';
 
@@ -56,9 +55,7 @@ export default class Modal extends PureComponent {
         transparent
         visible={visible}
       >
-        <SafeAreaView style={styles.safeArea}>
-          {this._renderModal()}
-        </SafeAreaView>
+        {this._renderModal()}
       </RNModal>
     );
   }
@@ -81,5 +78,5 @@ Modal.defaultProps = {
   onClose: noop,
   children: null,
   containerStyles: {},
-  animationType: 'fade',
+  animationType: 'slide',
 };

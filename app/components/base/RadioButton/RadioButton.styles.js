@@ -33,8 +33,7 @@ export default StyleSheet.create({
   },
   container: {
     backgroundColor: theme.transparent,
-    borderBottomWidth: 1,
-    borderBottomColor: theme.FADE_BORDER,
+    paddingLeft: theme.PADDING_SMALL,
   },
 
   outline: {

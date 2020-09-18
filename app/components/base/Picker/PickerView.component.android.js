@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Picker } from 'react-native';
 import { noop } from 'lodash';
 import styles from './PickerView.styles.android';
+import Icon from '../Icon/Icon.component';
 
 export default class PickerView extends PureComponent {
   constructor(props) {
@@ -40,6 +41,7 @@ export default class PickerView extends PureComponent {
         style={styles.picker}
         selectedValue={value}
         onValueChange={this.onSelect}
+        iconSuffix={<Icon name="chevron-left" />}
       >
         {options.map(this.renderItem)}
       </Picker>

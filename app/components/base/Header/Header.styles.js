@@ -1,14 +1,14 @@
 import { StyleSheet, Platform } from 'react-native';
 import { theme } from '../../../styles/core.style';
 import {
-  fontSizeMedium, fontWeightBold,
+  FONT_SIZE_MEDIUM, FONT_SIZE_NORMAL, FONT_WEIGHT_BOLD,
 } from '../../../styles/common.style';
 
 export default StyleSheet.create({
   outerContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    // justifyContent: 'space-between',
+    // alignItems: 'center',
     paddingHorizontal: 14,
     shadowColor: theme.BLACK,
     shadowOffset: {
@@ -19,13 +19,19 @@ export default StyleSheet.create({
     shadowRadius: 1.5,
     elevation: 3,
     height: (Platform.OS === 'ios' ? 44 : 56),
+    backgroundColor: theme.PRIMARY,
   },
   centerComponent: {
     flex: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    height: '100%',
+    textAlign: 'center',
   },
   title: {
-    ...fontSizeMedium,
-    ...fontWeightBold,
+    ...FONT_SIZE_MEDIUM,
+    ...FONT_WEIGHT_BOLD,
   },
   iconContainer: {
     flex: 2,
@@ -44,7 +50,7 @@ export default StyleSheet.create({
     color: theme.BLACK,
   },
   rightText: {
-    ...fontSizeMedium,
-    ...fontWeightBold,
+    ...FONT_SIZE_NORMAL,
+    ...FONT_WEIGHT_BOLD,
   },
 });

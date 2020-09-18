@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import styles from './LoadingImage.styles';
 import { theme } from '../../../styles/core.style';
-import defaultPicture from '../../../assets/images/default.png';
+import defaultPicture from '../../../assets/images/gympod.png';
 
 export default class LoadingImage extends React.PureComponent {
   constructor(props) {
@@ -19,12 +19,14 @@ export default class LoadingImage extends React.PureComponent {
   _onThumbnailLoad() {
     Animated.timing(this._thumbnailAnimated, {
       toValue: 1,
+      useNativeDriver: true,
     }).start();
   }
 
   _onImageLoad() {
     Animated.timing(this._imageAnimated, {
       toValue: 1,
+      useNativeDriver: true,
     }).start();
     const { onLoad } = this.props;
     if (onLoad) {
@@ -79,7 +81,6 @@ export default class LoadingImage extends React.PureComponent {
                 {...props}
                 source={defaultSource}
                 style={defaultImageStyles}
-                resizeMode="cover"
               />
             )
         }

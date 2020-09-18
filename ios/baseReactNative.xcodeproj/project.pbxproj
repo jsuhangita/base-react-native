@@ -19,7 +19,6 @@
 		64F13B59CFDA05573F0C80B7 /* libPods-baseReactNativeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3343C71CCA41BAD72A8 /* libPods-baseReactNativeTests.a */; };
 		7303B5F2A6B6377AF339FDBF /* libPods-baseReactNative-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7BD8C7B172C139D3BE5C56 /* libPods-baseReactNative-tvOSTests.a */; };
 		C753DD1598603268EDD3BF64 /* libPods-baseReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90609269D22654D7D16B7F6A /* libPods-baseReactNative.a */; };
-		CEE64800240652E2000C3F7F /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE647FF240652E2000C3F7F /* icomoon.ttf */; };
 		D23FC17B1B459792DC314771 /* libPods-baseReactNative-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1CA60BF1C0E1464F76E445 /* libPods-baseReactNative-tvOS.a */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +65,6 @@
 		9E1CA60BF1C0E1464F76E445 /* libPods-baseReactNative-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-baseReactNative-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5D07707368ED6CD65A70F7 /* Pods-baseReactNative-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baseReactNative-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-baseReactNative-tvOS/Pods-baseReactNative-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		CEE647EC24064D92000C3F7F /* baseReactNative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = baseReactNative.entitlements; path = baseReactNative/baseReactNative.entitlements; sourceTree = "<group>"; };
-		CEE647FF240652E2000C3F7F /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = icomoon.ttf; path = ../../../../../../Users/user/Downloads/googleIcon/fonts/icomoon.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FAA137BF9217CEEAD48D3822 /* Pods-baseReactNative-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baseReactNative-tvOS.release.xcconfig"; path = "Target Support Files/Pods-baseReactNative-tvOS/Pods-baseReactNative-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -205,9 +203,9 @@
 		CEE647ED24064ED3000C3F7F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CEE647FF240652E2000C3F7F /* icomoon.ttf */,
 			);
-			path = Resources;
+			name = Resources;
+			path = ../android/app/src/main/assets/fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,7 +348,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE64800240652E2000C3F7F /* icomoon.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);

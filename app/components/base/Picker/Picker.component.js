@@ -40,9 +40,12 @@ export default class Picker extends PureComponent {
     this.setState({
       modalVisible: false,
     }, () => {
-      const { valueKey, onChange } = this.props;
+      const { valueKey, onChange, name } = this.props;
       const selectedObj = find(this.list, (listItem) => listItem[valueKey] === value);
-      onChange(selectedObj[valueKey] || '');
+      onChange({
+        value: selectedObj[valueKey] || '',
+        name,
+      });
     });
   }
 
@@ -104,8 +107,8 @@ export default class Picker extends PureComponent {
 
     return (
       <View style={wrapperStyleProps}>
+        {label ? <Label style={styles.labelStyle} text={label} /> : null}
         <View style={containerStyleProps}>
-          {label ? <Label text={label} /> : null}
           <View style={styles.picker__content}>
             {
               (affix || iconAffix)
@@ -141,12 +144,17 @@ export default class Picker extends PureComponent {
               (suffix || iconSuffix)
                 ? (
                   <View style={styles.picker__suffixContainer}>
-                    <Label
-                      white={white}
-                      style={styles.picker__suffix}
-                      text={suffix}
-                      icon={iconSuffix}
-                    />
+                    <Touchable style={inputStyleProps} onPress={this.showModal}>
+                      <Label
+                        white={white}
+                        style={styles.picker__suffix}
+                        text={suffix}
+                        icon={iconSuffix}
+                        iconStyle={{
+                          alignItems: 'flex-end',
+                        }}
+                      />
+                    </Touchable>
                   </View>
                 ) : null
             }
@@ -178,6 +186,7 @@ Picker.propTypes = {
   suffix: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   iconAffix: PropTypes.string,
   iconSuffix: PropTypes.string,
+  name: PropTypes.string,
 };
 
 Picker.defaultProps = {
@@ -201,4 +210,5 @@ Picker.defaultProps = {
   suffix: null,
   iconAffix: null,
   iconSuffix: null,
+  name: '',
 };
