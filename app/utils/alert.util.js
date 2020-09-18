@@ -10,19 +10,19 @@ export const alert = (title = '', message = '') => (
     }])
 );
 
-export function errorHandler(props) {
-  const {
-    isShowAlert = true,
-    title, message = language.COMMON__TRT_AGAIN,
-  } = props;
-  if (isShowAlert) {
-    Alert.alert(title,
-      message,
-      [{
-        text: language.COMMON__OK,
-      }]);
-  }
-}
+// export function errorHandler(props) {
+//   const {
+//     isShowAlert = true,
+//     title, message = language.COMMON__TRT_AGAIN,
+//   } = props;
+//   if (isShowAlert) {
+//     Alert.alert(title,
+//       message,
+//       [{
+//         text: language.COMMON__OK,
+//       }]);
+//   }
+// }
 
 export function alertConfirmation(props) {
   const {

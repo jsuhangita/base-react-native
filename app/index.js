@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './app.container';
 import { name as appName } from '../app.json';
 import { initStore } from './state/store';
+import { initializeHTTPInterceptors } from './utils/http.util';
 
 // ===========================================
 // CONFIG FOR MAKING NETWORK REQUEST SHOW UP
@@ -14,6 +15,7 @@ import { initStore } from './state/store';
 // ===========================================
 
 const store = initStore();
+initializeHTTPInterceptors(store);
 
 const baseReactNative = () => (
   <Provider store={store}>

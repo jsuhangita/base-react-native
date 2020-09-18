@@ -53,6 +53,7 @@ const deviceInfo = {
   model: DeviceInfo.getModel,
   os_version: DeviceInfo.getSystemVersion,
   app_version: DeviceInfo.getVersion,
+  getReadableVersion: DeviceInfo.getReadableVersion,
   name: Platform.OS,
   os: Platform.OS,
 };
